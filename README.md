@@ -127,13 +127,20 @@ Example for `cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz`:
 tar -xvf cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
 
 # Copy header files
+sudo cp -P cuda/include/cudnn.h /usr/local/cuda-11.5/include
 sudo cp -P cudnn-linux-x86_64-8.9.7.29_cuda12-archive/include/cudnn.h /usr/local/cuda-12.4/include
 
 # Copy library files
 sudo cp -P cudnn-linux-x86_64-8.9.7.29_cuda12-archive/lib64/libcudnn* /usr/local/cuda-12.4/lib64/
+sudo cp -P cudnn-linux-x86_64-8.9.4.25_cuda11-archive/lib/libcudnn* /usr/local/cuda-11.5/lib64/
 
 # Set permissions
 sudo chmod a+r /usr/local/cuda-12.4/lib64/libcudnn*
+```
+
+Finally, reboot your system:
+```bash
+sudo reboot
 ```
 
 ---
