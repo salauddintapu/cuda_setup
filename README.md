@@ -1,7 +1,9 @@
 # CUDA Setup on Linux
 
-This guide will walk you through installing **CUDA drivers** on a Linux machine, step by step.  
+This guide will walk you through installing **CUDA drivers** on a Linux machine, step by step.  Before starting setup make sure you know your `GPU series` and `Ubuntu version`.
 We’ll begin by removing any previously installed NVIDIA drivers or CUDA remnants to ensure a clean setup.
+
+> Check your [CUDA GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
 
 ---
 
@@ -88,6 +90,7 @@ sudo apt-get update
 # Install CUDA
 sudo apt-get -y install cuda
 ```
+> **⚠️ Note:** When you select a specific version of `CUDA` from [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive), run the corresponding commands from the archive.
 
 ---
 
@@ -110,6 +113,7 @@ source ~/.bashrc
 # Update the dynamic linker runtime bindings
 sudo ldconfig
 ```
+> **⚠️ Note:** Change `cuda-12.4`  from the path `/usr/local/cuda-12.4` according to your cuda version.
 
 ---
 
@@ -132,11 +136,13 @@ sudo cp -P cudnn-linux-x86_64-8.9.7.29_cuda12-archive/include/cudnn.h /usr/local
 
 # Copy library files
 sudo cp -P cudnn-linux-x86_64-8.9.7.29_cuda12-archive/lib64/libcudnn* /usr/local/cuda-12.4/lib64/
-sudo cp -P cudnn-linux-x86_64-8.9.4.25_cuda11-archive/lib/libcudnn* /usr/local/cuda-11.5/lib64/
+sudo cp -P cudnn-linux-x86_64-8.9.7.29_cuda12-archive/lib/libcudnn* /usr/local/cuda-12.4/lib64/
 
 # Set permissions
 sudo chmod a+r /usr/local/cuda-12.4/lib64/libcudnn*
 ```
+
+> **⚠️ Note:** Change `cuda-12.4` and `cudnn-linux-x86_64-8.9.7.29_cuda12-archive` according to your `CUDA` and `cuDNN` version.
 
 Finally, reboot your system:
 ```bash
@@ -164,7 +170,7 @@ nvcc --version
 ```
 You should see the installed CUDA version (e.g., release 12.4).
 
-### 3. Check cuDNN Installation
+<!-- ### 3. Check cuDNN Installation
 
 Check whether cuDNN is correctly installed by running:
 
@@ -173,7 +179,7 @@ cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 ```
 This should display the installed cuDNN version.
 
----
+--- -->
 
 ## Conclusion
 
@@ -184,3 +190,4 @@ If you run into issues, double-check compatibility in the official documentation
 - [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)  
 - [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive)  
 - [CUDA Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/backend/latest/reference/support-matrix.html)
+- [CUDA GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
