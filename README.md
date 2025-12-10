@@ -72,23 +72,23 @@ Run the following commands:
 
 ```bash
 # Download the CUDA repository pin
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
 
 # Download the CUDA 11.5 local installer
-wget https://developer.download.nvidia.com/compute/cuda/11.5.0/local_installers/cuda-repo-ubuntu2004-11-5-local_11.5.0-495.29.05-1_amd64.deb
+wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda-repo-ubuntu2204-12-8-local_12.8.0-570.86.10-1_amd64.deb
 
 # Install the local CUDA repository package
-sudo dpkg -i cuda-repo-ubuntu2004-11-5-local_11.5.0-495.29.05-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2204-12-8-local_12.8.0-570.86.10-1_amd64.deb
 
 # Add the CUDA GPG key
-sudo apt-key add /var/cuda-repo-ubuntu2004-11-5-local/7fa2af80.pub
+sudo cp /var/cuda-repo-ubuntu2204-12-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
 
 # Update package lists
 sudo apt-get update
 
 # Install CUDA
-sudo apt-get -y install cuda
+sudo apt-get -y install cuda-toolkit-12-8
 ```
 > **⚠️ Note:** When you select a specific version of `CUDA` from [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive), run the corresponding commands from the archive.
 
