@@ -102,10 +102,10 @@ Run the following commands:
 
 ```bash
 # Add CUDA to your PATH
-echo 'export PATH=/usr/local/cuda-12.4/bin:$PATH' >> ~/.bashrc
+echo 'export PATH=/usr/local/cuda-12.8/bin:$PATH' >> ~/.bashrc
 
 # Add CUDA libraries to your LD_LIBRARY_PATH
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 # Reload your shell configuration
 source ~/.bashrc
@@ -113,7 +113,7 @@ source ~/.bashrc
 # Update the dynamic linker runtime bindings
 sudo ldconfig
 ```
-> **⚠️ Note:** Change `cuda-12.4`  from the path `/usr/local/cuda-12.4` according to your cuda version.
+> **⚠️ Note:** Change `cuda-12.8`  from the path `/usr/local/cuda-12.8` according to your cuda version.
 
 ---
 
